@@ -7,9 +7,6 @@ public class Node
     public List<Edge> edgeList = new List<Edge>();
     public Node path = null;
     private GameObject id;
-    public float xPos;
-    public float yPos;
-    public float zPos;
 
     // attribs related to a star algorithm
     public float f, g, h;
@@ -20,9 +17,9 @@ public class Node
     public Node(GameObject i)
     {
         id = i;
-        xPos = i.transform.position.x;
-        yPos = i.transform.position.y;
-        zPos = i.transform.position.z;
+        //xPos = i.transform.position.x;  // not needed unless wanting to pass in vector3s!
+        //yPos = i.transform.position.y;
+        //zPos = i.transform.position.z;
         path = null;
     }
 

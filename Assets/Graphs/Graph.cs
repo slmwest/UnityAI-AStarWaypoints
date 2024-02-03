@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Graph
@@ -106,7 +107,22 @@ public class Graph
         }
         // no open nodes to explore, no path can be found
         return false;
+    }
 
+    public void ReconstructPath(Node startId, Node endId)
+    {
+        pathList.Clear();
+        pathList.Add(endId);
+
+        // go backwards up the path
+        var p = endId.cameFrom;
+        while (p != startId && p != null)
+        {
+            pathList.Insert(0, p); // insert p at the start of the list, using 0th index
+            p = p.cameFrom;
+        }
+        // complete the path adding in the start node
+        pathList.Insert(0, startId);
     }
 
 
