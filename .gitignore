@@ -361,3 +361,32 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/.vsconfig
+/Assembly-CSharp-Editor.csproj
+/Assembly-CSharp.csproj
+/Library
+/ProjectSettings
+/Temp
+/UnityAI-AStarWaypoints.sln
+/UserSettings
+/Assets/Materials
+/Assets/Scenes
+/Assets/Scenes/SampleScene.unity
+/Assets/TANKASSETS
+/Assets/TANKASSETS/Animators
+/Assets/TANKASSETS/Animators/Pumpjack.controller
+/Assets/TANKASSETS/Fonts/Bowlby_One
+/Assets/TANKASSETS/Materials
+/Assets/TANKASSETS/Models
+/Assets/TANKASSETS/PostProcessing
+/Assets/TANKASSETS/Prefabs
+/Assets/TANKASSETS/Profiles
+/Assets/TANKASSETS/Readme.asset
+/Assets/TANKASSETS/red.mat
+/Assets/TANKASSETS/Sprites
+/Assets/TANKASSETS/_Complete-Game.unity
+/Assets/red.mat
+/Assets/Tank.fbx
+/Assets/WayPoint.prefab
+/Assets/WPTank.unity
+/Assets/WPTankSettings.lighting
