@@ -36,7 +36,7 @@ public class WPManager : MonoBehaviour
                 graph.AddEdge(l.node1, l.node2);
                 if (l.dir == Link.direction.BI)
                 {
-                    graph.AddEdge(l.node2, l.node1);
+                    graph.AddEdge(l.node2, l.node1); // add symmetric edge
                 }
             }
         }
