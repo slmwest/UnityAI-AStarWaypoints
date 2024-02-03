@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Graph
 {
-    public List<Edge> edges = new List<Edge>();
-    public List<Node> nodes = new List<Node>();
+    List<Edge> edges = new List<Edge>();
+    List<Node> nodes = new List<Node>();
     public List<Node> pathList = new List<Node>();
 
     public Graph() { }
@@ -64,7 +64,7 @@ public class Graph
             // finish algorithm if reached goal
             if (thisNode.getId() == endId)
             {
-                // reconstruct path (start, end)
+                ReconstructPath(start, end);
                 return true;
             }
 
