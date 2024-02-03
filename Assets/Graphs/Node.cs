@@ -11,7 +11,7 @@ public class Node
     public float yPos;
     public float zPos;
 
-    // a star fields
+    // attribs related to a star algorithm
     public float f, g, h;
     public Node cameFrom;
 
