@@ -26,13 +26,15 @@ public class WaypointDebug : MonoBehaviour {
 	}
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		if(this.transform.parent.gameObject.name != "WayPoint") return;
 		RenameWPs(null);
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
 		this.GetComponent<TextMesh>().text = this.transform.parent.gameObject.name;
 	}
 }
