@@ -36,7 +36,8 @@ public class FollowWaypoints : MonoBehaviour
 
         wps = wpManager.GetComponent<WPManager>().waypoints;
         g = wpManager.GetComponent<WPManager>().graph;
-        currentNode = wps[currentWP];
+        currentNode = wps[0]; // TODO: make closest waypoint to tank's starting position
+        Time.timeScale = 5; // speed up time by factor of 5!
 
         // 2 seconds to give enough time to load all waypoints into waypoint manager and graph, etc
         Invoke("GoToRuin", 2f);

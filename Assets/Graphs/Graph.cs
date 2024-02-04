@@ -43,14 +43,15 @@ public class Graph
     {
 
         // validation
-        if (startId == endId)
-        {
-            pathList.Clear();
-            return false;
-        }
         Node start = FindNode(startId);
         Node end = FindNode(endId);
         if (start == null && end == null) { return false; }
+        if (startId == endId)
+        {
+            pathList.Clear();
+            pathList.Add(end);
+            return true;
+        }
 
         // prepare variables
         List<Node> open = new List<Node>();
