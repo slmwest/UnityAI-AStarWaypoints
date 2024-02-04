@@ -63,6 +63,14 @@ public class FollowWaypoints : MonoBehaviour
         GoToNewTarget(7);
     }
 
+
+    public void GoToRockTower()
+    {
+        Debug.Log("Going to rock tower!");
+        GoToNewTarget(15);
+    }
+
+
     void GoToNewTarget(int targetNodeIdx)
     {
         
@@ -80,19 +88,11 @@ public class FollowWaypoints : MonoBehaviour
         {
             return;
         }
-        else if (g.pathList[0] == oldLastNode || g.pathList[1] == oldNextNode)
+        else if (g.pathList[1] == oldNextNode)
         {
             currentWP = 1;
             Debug.Log("Avoided going back to start of path!");
         }
-    }
-
-    public void GoToRockTower()
-    {
-        Debug.Log("Going to rock tower!");
-        int targetNodeIdx = 15;
-        g.AStar(currentNode, wps[targetNodeIdx]);
-        currentWP = 0;
     }
 
     void ProgressTracker()
