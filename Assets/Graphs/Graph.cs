@@ -41,16 +41,22 @@ public class Graph
 
     public bool AStar(GameObject startId, GameObject endId)
     {
+
+        // validation
+        if (startId == endId)
+        {
+            pathList.Clear();
+            return false;
+        }
         Node start = FindNode(startId);
         Node end = FindNode(endId);
-
         if (start == null && end == null) { return false; }
 
+        // prepare variables
         List<Node> open = new List<Node>();
         List<Node> closed = new List<Node>();
         float tentative_g_score = 0;
         bool tentative_is_better;
-
         start.g = 0;
         start.h = Distance(start, end);
         start.f = start.h;
