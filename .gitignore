@@ -390,3 +390,4 @@ FodyWeavers.xsd
 /Assets/WayPoint.prefab
 /Assets/WPTank.unity
 /Assets/WPTankSettings.lighting
+/Assets/WPTank/NavMesh-NavMesh Surface.asset
