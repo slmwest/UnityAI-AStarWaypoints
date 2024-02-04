@@ -21,6 +21,8 @@ public class FollowWaypoints : MonoBehaviour
     public GameObject wpManager;
     GameObject[] wps;
     GameObject currentNode;
+    Node oldLastNode;
+    Node oldNextNode;
     int currentWP = 0;
     Graph g;
 
@@ -30,7 +32,7 @@ public class FollowWaypoints : MonoBehaviour
     {
         tracker = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
         DestroyImmediate(tracker.GetComponent<Collider>());
-        //tracker.GetComponent<MeshRenderer>().enabled = false;
+        tracker.GetComponent<MeshRenderer>().enabled = false;
         tracker.transform.position = this.transform.position;
         tracker.transform.rotation = this.transform.rotation;
 
@@ -46,25 +48,43 @@ public class FollowWaypoints : MonoBehaviour
     public void GoToHeli()
     {
         Debug.Log("Going to helipad!");
-        int targetNodeIdx = 0;
-        g.AStar(currentNode, wps[targetNodeIdx]);
-        currentWP = 0;
+        GoToNewTarget(0);
     }
 
     public void GoToRuin()
     {
         Debug.Log("Going to ruins!");
-        int targetNodeIdx = 12;
-        g.AStar(currentNode, wps[targetNodeIdx]);  // sets g.pathList
-        currentWP = 0;
+        GoToNewTarget(12);
     }
 
     public void GoToFactory()
     {
         Debug.Log("Going to factory!");
-        int targetNodeIdx = 7;
+        GoToNewTarget(7);
+    }
+
+    void GoToNewTarget(int targetNodeIdx)
+    {
+        
+        // retain old path in memory temporarily
+        if (g.pathList.Count > 1)
+        {
+            oldLastNode = g.pathList[0];
+            oldNextNode = g.pathList[1];
+        }
         g.AStar(currentNode, wps[targetNodeIdx]);
         currentWP = 0;
+
+        // if already on correct path, do not go back to start of path but carry on ahead!
+        if (g.pathList.Count <= 1)
+        {
+            return;
+        }
+        else if (g.pathList[0] == oldLastNode || g.pathList[1] == oldNextNode)
+        {
+            currentWP = 1;
+            Debug.Log("Avoided going back to start of path!");
+        }
     }
 
     public void GoToRockTower()
